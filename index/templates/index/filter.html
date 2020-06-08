@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Editor</title>
+</head>
+<body>
+    <a href="{%url 'all_files'%}">Все документы</a>
+    <a href="{%url 'all_images'%}">Все изображения</a><br/>
+    {% if Docs %}
+    {% for file in Docs %}
+    <a href={{file.File.url}}>{{file.File.name}}</a></br>
+    {% endfor %}
+    {% endif %}
+    {% if Imgs %}
+    {% for img in Imgs %}
+    <img src='{{img.File.url}}'>
+    {% endfor %}
+    {% endif %}
+</body>
+</html>

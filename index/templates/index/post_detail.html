@@ -1,0 +1,11 @@
+{%load static%}
+<a href='{%url 'post_edit' Post.PostSlug%}'>Edit</a> </br>
+<a href='{%url 'add_image' Post.PostSlug%}'>Add image</a> </br>
+<a href='{%url 'add_file' Post.PostSlug%}'>Add file</a> </br>
+{{Post.Text|linebreaks}}
+{%for img in Images %}
+<img src={{img.File.url}}>
+{%endfor%}
+{%for file in Files %}
+<a href={{file.File.url}}>{{file.File.name}}</a>
+{%endfor%}
